@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output,  EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-quote-item',
@@ -7,10 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
   // encapsulation: ViewEncapsulation.None
 })
 export class QuoteItemComponent implements OnInit {
- @Input() quote: any;
+ @Input() quote: any
+ @Output() onDelete = new EventEmitter<string>();
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+  onQuoteDelete () {
+   this.onDelete.emit(this.quote.id);
+ }
 
 }
