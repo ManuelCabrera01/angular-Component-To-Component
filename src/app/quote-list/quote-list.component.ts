@@ -30,5 +30,9 @@ export class QuoteListComponent implements OnInit , OnDestroy {
  ngOnDestroy() {
    console.log('ngOnDestroy: quote-list component');
  }
-
+ removeQuote (id) {
+   this.quotes = this.quotes.filter(
+     (quote) => quote.id !== id
+   );
+ }
 }
