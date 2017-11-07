@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-quote-list',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quote-list.component.css'],
   // encapsulation: ViewEncapsulation.None
 })
-export class QuoteListComponent implements OnInit {
+export class QuoteListComponent implements OnInit , OnDestroy {
   quotes: Array<any> = [{
       id: 1,
       text: 'Walk as if you are kissing the Earth with your feet.',
@@ -22,11 +22,13 @@ export class QuoteListComponent implements OnInit {
     }];
   constructor() { }
 
-  ngOnInit() {}
-  removeQuote (id) {
-    this.quotes = this.quotes.filter(
-      (quote) => quote.id !== id
-    );
-  }
+
+  ngOnInit() {
+   console.log('ngOnInit: quote-list component');
+ }
+
+ ngOnDestroy() {
+   console.log('ngOnDestroy: quote-list component');
+ }
 
 }
