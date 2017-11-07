@@ -22,7 +22,11 @@ export class QuoteListComponent implements OnInit {
     }];
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+  removeQuote (id) {
+    this.quotes = this.quotes.filter(
+      (quote) => quote.id !== id
+    );
   }
 
 }
